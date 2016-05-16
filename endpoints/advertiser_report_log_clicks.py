@@ -2,9 +2,9 @@
 from .advertiser_report_log import AdvertiserReportLog
 
 
-class AdvertiserReportLogClics(AdvertiserReportLog):
+class AdvertiserReportLogClicks(AdvertiserReportLog):
     # I don't like long hierarchy of properties
     @property
     def export_url(self):
-        url = 'http://api.mobileapptracking.com/v3/logs/advertisers/{id}/exports/clics'
+        url = 'http://api.mobileapptracking.com/v3/logs/advertisers/{id}/exports/clicks'
         return url.format(id=self.advertiser_id)
