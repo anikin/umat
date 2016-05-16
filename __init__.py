@@ -3,6 +3,7 @@ from .endpoints import (
     AdvertiserReportCohortValues,
     AdvertiserReportLogEvents,
     AdvertiserReportLogInstalls,
+    AdvertiserReportLogClicks,
     AdvertiserReportLogOpens,
     MatRequestError,
     MatExportError
