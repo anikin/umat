@@ -1,6 +1,11 @@
 # Unofficial SDK for MobileAppTracking Service APIs
 
-### Configuration file contents:
+Install from PyPi
+```bash
+pip install --upgrade tune-reporting
+```
+
+Configuration file contents:
 ```ini
 [main]
 api_key = YOUR_API_KEY
@@ -11,7 +16,8 @@ timeout = 300  # seconde
 delay = 30  # seconde
 limit = 2000000
 ```
-### Using:
+
+Sample:
 ```python
 # -*- coding: utf-8 -*-
 from umat import (
