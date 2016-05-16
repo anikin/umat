@@ -2,7 +2,7 @@
 
 Install from PyPi
 ```bash
-pip install --upgrade tune-reporting
+pip install --upgrade umat
 ```
 
 Configuration file contents:
