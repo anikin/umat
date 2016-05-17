@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from base_params import Params as BaseParams
+from .base_params import Params as BaseParams
 
 
 class Params(BaseParams):
