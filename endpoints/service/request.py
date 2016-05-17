@@ -2,7 +2,7 @@
 from requests import get
 from six import reraise
 from sys import exc_info
-from util import print_bold
+from .util import print_bold
 
 
 class MatRequestError(Exception):
