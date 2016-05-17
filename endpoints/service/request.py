@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from requests import get
+from six import reraise
+from sys import exc_info
 from util import print_bold
 
 
@@ -38,8 +40,9 @@ def request(*args, **kwargs):
         lives -= 1
         try:
             return _request(*args, **kwargs)
-        except MatRequestError, e:
+        except MatRequestError:
+            info = exc_info()
             if __debug__:
-                print_bold(e)
+                print_bold(info[1])
             if not lives:
-                raise e
+                reraise(*info)
