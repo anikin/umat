@@ -10,6 +10,10 @@ class Field(object):
         self.criteria = '(({field} = 0) OR ({field} IS NULL))'.format(field=self.field_name)
         return self
 
+    def is_not_null(self):
+        self.criteria = '({field} IS NOT NULL)'.format(field=self.field_name)
+        return self
+
     def in_list(self, lst):
         self.criteria = '({} IN {})'.format(self.field_name, tuple(lst))
         return self
