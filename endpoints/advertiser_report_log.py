@@ -28,7 +28,7 @@ class AdvertiserReportLog(AdvertiserReport):
         )
 
     def get_dataframe(self):
-        df = read_csv(self.export.csv_url)
+        df = read_csv(self.export.csv_url, parse_dates=True)
         df_len = len(df.index)
         if __debug__:
             print_bold('DataFrame length: {}'.format(df_len))

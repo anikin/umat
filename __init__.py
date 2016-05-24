@@ -5,9 +5,9 @@ from .endpoints import (
     AdvertiserReportLogInstalls,
     AdvertiserReportLogClicks,
     AdvertiserReportLogOpens,
+    Field,
     MatRequestError,
     MatExportError
 )
 
-
-__version__ = '0.1.9'
+__version__ = '0.1.10'
