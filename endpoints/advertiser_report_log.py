@@ -11,14 +11,19 @@ from .service.util import print_bold
 
 
 class AdvertiserReportLog(AdvertiserReport):
-    def __init__(self, *args, **kwargs):
-        super(AdvertiserReportLog, self).__init__(*args, **kwargs)
-        self.advertiser_id = self.config_parser.getint('export', 'advertiser_id')
-        self.params = Params(self.api_key)
+    def __init__(self,
+                 api_key,
+                 advertiser_id,
+                 export_limit=2000000,
+                 export_delay=30,
+                 export_timeout=1500):
+        super(AdvertiserReportLog, self).__init__(api_key)
+        self.advertiser_id = advertiser_id
+        self.export_limit = export_limit
+        self.export_delay = export_delay
+        self.export_timeout = export_timeout
+        self.params = Params(api_key)
         self.params.filter = Field('test_profile_id').is_null()
-        self.export_limit = self.config_parser.getint('export', 'limit')
-        self.export_delay = self.config_parser.getint('export', 'delay')
-        self.export_timeout = self.config_parser.getint('export', 'timeout')
         self.export = Export(
             self.export_url,
             self.params,

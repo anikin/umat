@@ -7,9 +7,9 @@ from .service.mat_data_parser import parse
 
 
 class AdvertiserReportCohort(AdvertiserReport):
-    def __init__(self, *args, **kwargs):
-        super(AdvertiserReportCohort, self).__init__(*args, **kwargs)
-        self.params = Params(self.api_key)
+    def __init__(self, api_key):
+        super(AdvertiserReportCohort, self).__init__(api_key)
+        self.params = Params(api_key)
         self.params.filter = Field('test_profile_id').is_null()
         self.collector = Collector(self.params, self.count_url, self.find_url)
 
