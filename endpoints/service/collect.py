@@ -21,11 +21,11 @@ class Collector(object):
     def __init__(self, params, count_url, find_url):
         self.params = params
         self.params['limit'] = self.MAT_APT_MAX_LIMIT
-        self.params['filter'] = str(self.params.filter)
         self.count_url = count_url
         self.find_url = find_url
 
     def collect(self):
+        self.params['filter'] = str(self.params.filter)
         pages = range(1, self.count() + 1)
         params = [self.get_find_params(n) for n in pages]
         data = self.find(params)
