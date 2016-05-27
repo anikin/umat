@@ -2,14 +2,18 @@
 from requests import get
 from six import reraise
 from sys import exc_info
-from .util import print_bold
+from .util import (
+    print_bold,
+    retry
+)
 
 
 class MatRequestError(Exception):
     pass
 
 
-def _request(*args, **kwargs):
+@retry(10)
+def request(*args, **kwargs):
     response = get(*args, **kwargs)
     if __debug__:
         print_bold('Request URL: {}'.format(response.url))
@@ -32,17 +36,3 @@ def _request(*args, **kwargs):
         )
 
     return response_json
-
-
-def request(*args, **kwargs):
-    lives = 5
-    while lives:
-        lives -= 1
-        try:
-            return _request(*args, **kwargs)
-        except MatRequestError:
-            info = exc_info()
-            if __debug__:
-                print_bold(info[1])
-            if not lives:
-                reraise(*info)

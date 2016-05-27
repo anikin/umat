@@ -6,7 +6,10 @@ from .request import (
     MatRequestError,
     request
 )
-from .util import print_bold
+from .util import (
+    print_bold,
+    retry
+)
 
 
 class MatExportError(MatRequestError):
@@ -22,6 +25,7 @@ class Export(object):
         self.timeout = timeout
 
     @property
+    @retry(10)
     def csv_url(self):
         export_job_status_url = self._get_export_job_status_url()
         csv_url = self._wait_csv_url(export_job_status_url)
