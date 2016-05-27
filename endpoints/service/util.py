@@ -16,13 +16,14 @@ def print_bold(message, bold='\033[1m', default='\033[0m'):
 def retry(lives, delay=60):
     def decorator(fn):
         def wrapper(*args, **kwargs):
-            while lives:
-                lives -= 1
+            _lives = lives
+            while _lives:
+                _lives -= 1
                 try:
                     result = fn(*args, **kwargs)
                 except:
                     info = exc_info()
-                    if lives:
+                    if _lives:
                         sleep(delay)
                     else:
                         reraise(*info)
