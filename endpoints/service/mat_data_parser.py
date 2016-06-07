@@ -37,3 +37,9 @@ def parse(mat_data, include_days=True):
             df_rows.append(meta)
     df = DataFrame(df_rows)
     return df
+
+
+def parse_actuals(mat_data):
+    df_rows = [flatten_dict(item) for item in mat_data]
+    df = DataFrame(df_rows)
+    return df
