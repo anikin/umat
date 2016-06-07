@@ -15,4 +15,5 @@ class AdvertiserReportCohort(AdvertiserReport):
 
     def get_dataframe(self, include_days=False):
         mat_data = self.collector.collect()
-        return parse(mat_data, include_days=include_days)
+        if mat_data:
+            return parse(mat_data, include_days=include_days)

@@ -26,10 +26,12 @@ class Collector(object):
 
     def collect(self):
         self.params['filter'] = str(self.params.filter)
-        pages = range(1, self.count() + 1)
-        params = [self.get_find_params(n) for n in pages]
-        data = self.find(params)
-        return data
+        n_pages = self.count()
+        if n_pages:
+            pages = range(1, n_pages + 1)
+            params = [self.get_find_params(n) for n in pages]
+            data = self.find(params)
+            return data
 
     def count(self):
         params = self.get_count_params()

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from .endpoints import (
+    AdvertiserReportActuals,
     AdvertiserReportCohortValues,
     AdvertiserReportLogEvents,
     AdvertiserReportLogInstalls,
