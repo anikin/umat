@@ -11,4 +11,4 @@ class AdvertiserReportActuals(AdvertiserReportCohort):
     def get_dataframe(self, include_days=False):
         mat_data = self.collector.collect()
         if mat_data:
-            return parse_actuals(mat_data, include_days=include_days)
+            return parse_actuals(mat_data)
