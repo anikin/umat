@@ -11,4 +11,4 @@ from .endpoints import (
     MatExportError
 )
 
-__version__ = '0.1.17'
+__version__ = '0.1.18'
