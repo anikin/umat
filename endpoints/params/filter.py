@@ -15,7 +15,7 @@ class Field(object):
         return self
 
     def in_list(self, lst):
-        self.criteria = '({} IN {})'.format(self.field_name, tuple(lst))
+        self.criteria = '({} IN ({}))'.format(self.field_name, ','.join(lst))
         return self
 
     def __criteria(self, operator, value):
